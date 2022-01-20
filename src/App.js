@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>React Amazon Clone</p>
+        <p>React Amazon Clone / dev branch</p>
       </header>
     </div>
   );
