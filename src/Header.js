@@ -6,7 +6,7 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket"
 
 function Header() {
   return <nav className='header'>
-      <Link to="/Login">
+      <Link to="/">
       <img className='header__logo' src='https://i.pinimg.com/originals/47/b7/bd/47b7bdac4285ee24654ca7d68cf06351.png'></img>
       </Link>
       <div className='header__search'>
