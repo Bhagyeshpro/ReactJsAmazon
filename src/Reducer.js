@@ -1,5 +1,6 @@
 export const initialState = {
     basket: [],
+    user: null
 }
 
 function reducer(state, action) {
@@ -12,10 +13,28 @@ function reducer(state, action) {
                 basket: [...state.basket, action.item ]
             }
             break;
-        case "REMOVE_FROM _BASKET":
-            // Logic
-            return {state}
+
+        case "REMOVE_FROM_BASKET":
+            // We cloned the basket here
+            let newBasket = [...state.basket];
+
+            // Find the index to remove item
+            const index = state.basket.findIndex(
+                (basketItem) => basketItem.id === action.id
+            )
+
+            if(index >= 0) {
+                // item exist in baset, remove it now...
+                newBasket.splice(index, 1);
+            } else {
+                console.warn(`Can't remove item with id ${action.id} as it is not present`);
+            }
+            
+            return {
+                ...state,
+                basket: newBasket}
             break;
+                
         default:
             return state;
     }
