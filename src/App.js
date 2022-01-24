@@ -1,13 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import Header from './Header';
+import Home from './Home';
+import Checkout from './Checkout';
+ 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
       <header className="App-header">
-        <p>React Amazon Clone</p>
+        <Switch>
+          <Route path="/checkout">
+              <Header/>
+              <Checkout/>
+          </Route>
+          <Route path="/Login">
+              <h1>Login</h1>
+          </Route>
+          <Route path="/">
+              <Header/>
+              <Home/>
+          </Route>
+        </Switch>
       </header>
     </div>
+    </Router>
   );
 }
 
