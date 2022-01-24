@@ -2,11 +2,14 @@ import React from 'react';
 import {useStateValue} from "./StateProvider"
 import "./Checkout.css"
 import CheckoutProduct from './CheckoutProduct';
+import Subtotal from "./Subtotal"
 
 function Checkout() {
     const [{basket}] = useStateValue();
 
   return <div className="checkout">
+    <div className="checkout__left">
+
       <img 
         className='checkout__ad'
       src='https://www.junglescout.com/wp-content/uploads/2020/05/Prime-day-banner.png'
@@ -32,10 +35,16 @@ function Checkout() {
               />
             ))}
           </div>
-
         )
       }
-      {/* <h1>{[basket[1]]}</h1> */}
+    </div>
+    {basket.length > 0 && (
+      
+    <div className='checkout__right'>
+      <Subtotal/>
+    </div>
+  
+    )}
   </div>;
 }
 
